@@ -35,6 +35,7 @@ public:
 			else if((b[i][0] == x2) && (b[i][1] == y2) && (b[i][2] == x1) && (b[i][3] == y1))
 				return true;
 		}
+		
 		return false;
 	}
 
