@@ -1,0 +1,52 @@
+#include <vector>
+#include <list>
+#include <map>
+#include <set>
+#include <queue>
+#include <deque>
+#include <stack>
+#include <bitset>
+#include <algorithm>
+#include <functional>
+#include <numeric>
+#include <utility>
+#include <sstream>
+#include <iostream>
+#include <iomanip>
+#include <cstdio>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+
+class TheShuttles {
+public:
+	int getLeastCost(vector <int> c, int bc, int sc) {
+		sort(c.rbegin(), c.rend());
+		int s = c.size();
+		
+		vector<int> cst;
+		
+		for(int i=c[0]; i>=1; i--)
+		{
+			int tmpc=0;
+			for(int j=0; j<s; j++)
+			{
+				float tmp1=float(c[j]);
+				float tmp2=float(i);
+				int tc=ceil(tmp1/tmp2);
+				
+				tmpc+=tc*(bc + i*sc);
+			}
+			cst.push_back(tmpc);
+		}
+		
+		return *min_element(cst.begin(), cst.end());
+	}
+};
+
+
+<%:testing-code%>
+//Powered by KawigiEdit 2.1.4 (beta) modified by pivanof!
